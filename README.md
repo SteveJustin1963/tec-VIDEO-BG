@@ -2,7 +2,8 @@
 TEC-1 Video system by Benn Grimmett
 
 
-from FB;
+from FB and https://bennvenn.myshopify.com/pages/eprom-emulator?fbclid=IwAR3oiFbMDqD_Um0kDyn0Te59GhmlX4l3nxMFw-5U4jkrkzr3WmiS-NtPeWo
+
 
 Ben Grimmett?Australian Vintage Computer Group
 Visual Storyteller · 13 hrs · 
