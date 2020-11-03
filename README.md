@@ -75,4 +75,82 @@ Ben Grimmett Reinoud de Lange
 	yes I will. 
 	I have started to list and document the various boards I've made
   
+  ============
   
+Latest revisions have just arrived. 
+The TEC video card now includes a 
+PS2 keyboard port, 
+micro SD socket 
+and serial port.
+
+ 
+================
+
+My TEC Video Card:
+
+A work in progress. 
+	The latest FPGA configuration file is HERE
+
+The address and port 
+	breakdown is as follows:
+
+Base Address of Expansion socket = 0x1000
+Mode Register = Port3
+Scroll Register = Port4
+
+When in Mode0: - Video RAM Access
+Scroll Register = xPssssss
+x=dont care
+P=Page
+s=Scroll Offset
+32x32 Character visible screen area located at 0x1000-0x13FF
+32x32 Character off screen area located at 0x1400-17FF
+1 Page = 32x64 Characters.
+
+When in Mode1: - Character RAM Access
+2kbytes Character RAM are mapped to 0x1000-0x17FF
+Charaters are drawn as:
+0bxxxxxxxx ;Byte 0
+0bxxxxxxxx ;Byte 1
+0bxxxxxxxx ;Byte 2
+0bxxxxxxxx ;Byte 3
+0bxxxxxxxx ;Byte 4
+0bxxxxxxxx ;Byte 5
+0bxxxxxxxx ;Byte 6
+0bxxxxxxxx ;Byte 7
+
+When in Mode2: - Spirte Attribute Access
+5 Sprites available
+0x1000 - Sprite1 X location
+0x1001 - Sprite1 Y location
+0x1002 - Sprite2 X location
+0x1003 - Sprite2 Y location
+Down to.....
+0x1010 - Sprite9 X location
+0x1011 - Sprite9 Y location
+0x1012 - Sprite10 X location
+0x1013 - Sprite10 Y location
+
+0x1014 - Sprite1 Tile Pointer
+0x1015 - Sprite2 Tile Pointer
+Down to.....
+0x101D - Sprite10 Tile Pointer
+
+When in Mode3: - Sprite RAM Access
+0x1000 - 0x1007 Sprite1 Character Data (Tiles)
+Down to.....
+0x13F0 - 0x13FF Sprite 128 Character Data
+
+Each sprite can use any one of 128 sprite tiles. 
+	This is handy for turning them off (selecting a blank tile) 
+	or animation (changing the tile without re-writing new tile data) 
+	as well as multiplexing tiles to draw more than 10 sprites on screen at once.
+
+Sprites not valid in location 0,0
+
+When power is first applied, 
+	ChrRAM is pre-loaded with the default DOS ASCII character set 
+	and Vram loaded with a messages on page 0. 
+
+==================
+
