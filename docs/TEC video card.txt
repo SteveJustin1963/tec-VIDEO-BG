@@ -1,0 +1,20 @@
+Latest revisions have just arrived. 
+The TEC video card now includes a 
+PS2 keyboard port, 
+micro SD socket 
+and serial port.
+
+
+
+Two variants of the dat board, 
+	with and without the 5bit input port.
+
+TEC serial board.
+
+Fixed 8x8 matrix board.
+
+Fixed speech board.
+
+EPROM emulators.
+
+And some potentially fake SP0256A-AL speech chips.
